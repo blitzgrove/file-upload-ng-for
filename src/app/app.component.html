@@ -1,0 +1,12 @@
+<div *ngFor="let obj of cloneOfObjects">
+	<div class="header-icons-holder">
+		<div class="header-icon" (click)="file.click()">upload {{obj.name}}</div>
+		<span style="display:none">
+          <input type="file" #file (change)="onChange(file, obj)" multiple>
+    </span>
+	</div>
+	<div *ngIf="obj.uploadedFile">
+		<p>{{obj.fileName}}</p>
+		<button type="button" (click)="removeFile(obj)">Remove File</button>
+	</div>
+</div>
